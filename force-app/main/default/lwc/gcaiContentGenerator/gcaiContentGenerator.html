@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title={title} icon-name="standard:bot">
+      <template if:true={isLoading}>
+        <div class="spinnerHolder">
+          <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+        </div>
+      </template>
+      <lightning-layout
+        vertical-align="end"
+        class="slds-var-m-bottom_small"
+      >
+        <lightning-layout-item flexibility="grow">
+          <lightning-combobox
+              name="model"
+              label="Models"
+              value={selectedModelURL}
+              placeholder="Select Model"
+              options={modelOptions}
+              onchange={handleModelChange} >
+          </lightning-combobox>
+        </lightning-layout-item>
+  
+        <lightning-layout-item flexibility="grow">
+            <lightning-textarea
+                onchange={handlePromptChange}
+                label={title}
+                value={requestPromtText}
+                placeholder="Enter prompt text"
+            ></lightning-textarea>
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-var-p-left_xx-small">
+            <lightning-button
+                label="Generate"
+                onclick={handleLLMRequest}
+            ></lightning-button>
+        </lightning-layout-item>
+      </lightning-layout>    
+  
+  
+    </lightning-card>
+  </template>

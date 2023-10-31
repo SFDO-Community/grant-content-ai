@@ -1,0 +1,38 @@
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+	<apiVersion>52.0</apiVersion>
+	<isExposed>true</isExposed>
+	<masterLabel>Gcai content generator</masterLabel>
+	<targets>
+		<target>lightning__AppPage</target>
+		<target>lightning__HomePage</target>
+		<target>lightning__RecordPage</target>
+		<target>lightning__FlowScreen</target>
+		<target>lightning__Tab</target>
+		<target>lightningCommunity__Page</target>
+	</targets>
+	<targetConfigs>
+		<targetConfig targets="lightning__AppPage">
+			<property name="generativeResult" type="String" default="" label="Generative result" />
+			<supportedFormFactors>
+				<supportedFormFactor type="Small"/>
+				<supportedFormFactor type="Large"/>
+			</supportedFormFactors>
+		</targetConfig>
+		<targetConfig targets="lightning__HomePage">
+			<property name="generativeResult" type="String" default="" label="Generative result" />
+			<supportedFormFactors>
+				<supportedFormFactor type="Large"/>
+			</supportedFormFactors>
+		</targetConfig>
+		<targetConfig targets="lightning__RecordPage">
+			<property name="generativeResult" type="String" default="" label="Generative result" />
+			<supportedFormFactors>
+				<supportedFormFactor type="Small"/>
+				<supportedFormFactor type="Large"/>
+			</supportedFormFactors>
+		</targetConfig>
+		<targetConfig targets="lightning__FlowScreen">
+			<property name="generativeResult" type="String" label="Generative result" role="outputOnly" />
+		</targetConfig>
+	</targetConfigs>
+</LightningComponentBundle>

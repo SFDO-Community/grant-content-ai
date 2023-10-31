@@ -1,0 +1,13 @@
+{
+  "orgName": "Salesforce Commons",
+  "edition": "Developer",
+  "features": ["EnableSetPasswordInApi","AuthorApex"],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    }
+  }
+}
