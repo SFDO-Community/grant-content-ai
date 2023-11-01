@@ -73,11 +73,10 @@ export default class GcaiContentGenerator extends LightningElement {
         this.isLoading = true;
         getGeneratedContent({ requestPromptText: this.requestPromptText, modelURL: this.selectedModelURL })
             .then((result) => {
-                console.log('## GPT RESULT RETURN');
-                if (result.issuccess === true){
-                    console.log(`## GPT RESULT OK: ${JSON.stringify(result)}`);
-                    this.generativeResult = result.data;
-                    console.log(`GPT Result: ${this.generativeResult}`);
+                console.log(`## GPT RESULT RETURN ${JSON.stringify(result)}`);
+                if (result.length > 0){
+                    this.generativeResult = result; // Array of data can be 1
+                    console.log(`GPT Result: ${this.generativeResult[0]}`);
                     this.error = undefined;
                 }else{
                     // Handle error Toast

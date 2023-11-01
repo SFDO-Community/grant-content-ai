@@ -15,7 +15,7 @@ public with sharing class GCAI_Request {
     public Decimal presence_penalty {get; set;}
 
     public GCAI_Request() {
-        this.model = 'text-davinci-003'; //'gpt-3.5-turbo';
+        this.model = 'gpt-3.5-turbo-instruct'; //'gpt-3.5-turbo'; // DEPERCTED Model text-davinci-003
         this.temperature = 0.3;
         this.max_tokens = 150;
         this.top_p = 1.0;
