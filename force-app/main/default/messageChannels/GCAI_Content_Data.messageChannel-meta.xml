@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>ContentData</masterLabel>
+    <isExposed>true</isExposed>
+    <description>Message Channel to pass a Generated Content Text data</description>
+    <lightningMessageFields>
+        <fieldName>model</fieldName>
+        <description>AI Model selected and used for Gnereative content</description>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>generatedResult</fieldName>
+        <description>Generated text result from AI prompt</description>
+    </lightningMessageFields>
+</LightningMessageChannel>

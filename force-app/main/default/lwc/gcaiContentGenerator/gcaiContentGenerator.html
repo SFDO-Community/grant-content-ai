@@ -5,62 +5,45 @@
           <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
         </div>
       </template>
-      <lightning-layout
-        vertical-align="end"
-        class="slds-var-m-bottom_small"
-      >
-        <lightning-layout-item flexibility="grow">
-          <lightning-combobox
-              name="model"
-              label="Models"
-              value={selectedModelURL}
-              placeholder="Select Model"
-              options={modelOptions}
-              onchange={handleModelChange} >
-          </lightning-combobox>
-        </lightning-layout-item>
+
+      <lightning-button
+        label="Generate"
+        variant="brand"
+        slot="actions"
+        onclick={handleLLMRequest}
+        icon-name="utility:einstein"
+        icon-position="right"
+      ></lightning-button>
+
+      <lightning-textarea
+        onchange={handlePromptChange}
+        value={requestPromtText}
+        placeholder="Enter prompt text"
+        class="slds-var-m-left_xx-small slds-var-m-right_xxx-small slds-var-m-bottom_xx-small"
+      ></lightning-textarea>
   
-        <lightning-layout-item flexibility="grow">
-            <lightning-textarea
-                onchange={handlePromptChange}
-                label={title}
-                value={requestPromtText}
-                placeholder="Enter prompt text"
-            ></lightning-textarea>
-        </lightning-layout-item>
-        <lightning-layout-item class="slds-var-p-left_xx-small">
-            <lightning-button
-                label="Generate"
-                onclick={handleLLMRequest}
-            ></lightning-button>
-        </lightning-layout-item>
-      </lightning-layout>    
-  
-      
       <template if:true={generativeResult}>
         <template for:each={generativeResult} for:item="block">
           <div key={block.index} class="slds-box slds-box_xx-small slds-var-m-left_xx-small slds-var-m-right_xxx-small slds-var-m-bottom_xx-small">
-            <lightning-card  title="Result Text">
-                <lightning-button-stateful
-                    label-when-off="Select"
-                    label-when-on="Selected"
-                    label-when-hover="Deselect"
-                    icon-name-when-off="utility:add"
-                    icon-name-when-on="utility:check"
-                    icon-name-when-hover="utility:close"
-                    selected=false
-                    onclick={handleSelectClick}
-                    name={block.index}
-                    slot="actions"
-                    >
-                </lightning-button-stateful>
-
+            <lightning-card  title="Generated Text">
+              <lightning-button-icon
+                aria-label="Copy" 
+                icon-name="utility:copy"
+                alternative-text="Copy" 
+                class="slds-m-left_xx-small" 
+                title="Copy"
+                onclick={handleCopyText}
+                name={block.index}
+                slot="actions"
+                >
+              </lightning-button-icon>
                 <lightning-formatted-rich-text
                     value={block.text}
                 ></lightning-formatted-rich-text>
                 
-                <!-- Badge winner icon-name="utility:moneybag" 
-                <lightning-badge label={block.displaydate} slot="footer"></lightning-badge>
+                <lightning-badge label={block.index} slot="footer"></lightning-badge>
+                <lightning-badge label={block.finish_reason} slot="footer"></lightning-badge>
+              <!-- Badge winner icon-name="utility:moneybag" 
                 <lightning-badge label={block.wordcount} slot="footer"></lightning-badge>
                 <lightning-badge label={block.languagelabel} slot="footer"></lightning-badge>
                 <template for:each={block.badgeList} for:item="badge">
@@ -68,10 +51,11 @@
                 </template>
               -->
             </lightning-card>
-        </div>
+          </div>
 
         </template>
       </template>
-  
+
+      <p slot="footer">Model {selectedModelURL}</p>
     </lightning-card>
   </template>

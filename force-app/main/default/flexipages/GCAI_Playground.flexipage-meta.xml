@@ -14,10 +14,19 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>selectedModel</name>
+                </componentInstanceProperties>
+                <componentName>gcaiModelSelector</componentName>
+                <identifier>c_gcaiModelSelector</identifier>
+            </componentInstance>
+        </itemInstances>
         <name>column2</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>GCAI Test Page</masterLabel>
+    <masterLabel>GCAI Playground</masterLabel>
     <template>
         <name>flexipage:appHomeTemplateTwoColumns</name>
     </template>

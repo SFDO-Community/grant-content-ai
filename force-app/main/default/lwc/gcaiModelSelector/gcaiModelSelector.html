@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title={title} icon-name="standard:bot">
+        <template if:true={isLoading}>
+          <div class="spinnerHolder">
+            <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+          </div>
+        </template>
+        <div class="slds-box slds-box_xx-small slds-var-m-left_xx-small slds-var-m-right_xxx-small slds-var-m-bottom_xx-small">
+
+            <lightning-combobox
+                name="model"
+                label={displayLabel}
+                value={selectedModel}
+                placeholder="Select Model"
+                options={modelOptions}
+                onchange={handleModelChange} >
+            </lightning-combobox>
+        </div>    
+        </lightning-card>
+  </template>

@@ -5,12 +5,11 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  * 
  */
-
 @IsTest
-public class GCAI_ModelTest {
+public class GCAI_ModelListWrapperTest {
     @isTest
     static void testParse() {
-        String json=		'{'+
+        String json = '{"data": [{'+
         '      "id": "text-davinci-001",'+
         '      "object": "model",'+
         '      "created": 1649364042,'+
@@ -33,11 +32,9 @@ public class GCAI_ModelTest {
         '      ],'+
         '      "root": "text-davinci-001",'+
         '      "parent": null'+
-        '    }'+
-        '';
-        GCAI_Model obj = GCAI_Model.parse(json);
-        System.assert(obj != null, 'Failed to parse response');
-        System.assertEquals('text-davinci-001', obj.id,'Failed model Id');
-        
+        '    }]'+
+        '}';
+        GCAI_ModelListWrapper wrap = GCAI_ModelListWrapper.parse(json);
+        System.assert(wrap != null, 'Failed to parse response');
     }
 }
