@@ -5,7 +5,15 @@
           <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
         </div>
       </template>
-
+      <lightning-button
+        onclick={handleTemplateOpenClick}
+        aria-haspopup="dialog"
+        label="Open Template"
+        slot="actions"
+        class="slds-var-m-right_xxx-small"
+      >
+      </lightning-button>
+        
       <lightning-button
         label="Generate"
         variant="brand"
@@ -14,13 +22,26 @@
         icon-name="utility:einstein"
         icon-position="right"
       ></lightning-button>
-
-      <lightning-textarea
+    
+      <lightning-input-rich-text
         onchange={handlePromptChange}
-        value={requestPromtText}
+        value={requestPromptText}
         placeholder="Enter prompt text"
         class="slds-var-m-left_xx-small slds-var-m-right_xxx-small slds-var-m-bottom_xx-small"
-      ></lightning-textarea>
+        formats={textAreaFormats}
+      >
+        <lightning-rich-text-toolbar-button-group
+          slot="toolbar"
+          aria-label="First group"
+        >
+          <lightning-rich-text-toolbar-button
+            icon-name="utility:delete"
+            icon-alternative-text="Clear"
+            onclick={handleTextClearButtonClick}
+          >          
+          </lightning-rich-text-toolbar-button>
+        </lightning-rich-text-toolbar-button-group>  
+      </lightning-input-rich-text>
   
       <template if:true={generativeResult}>
         <template for:each={generativeResult} for:item="block">

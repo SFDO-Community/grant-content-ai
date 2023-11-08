@@ -1,0 +1,43 @@
+<template>
+    <lightning-modal-header label="Prompt Samples"></lightning-modal-header>
+    <lightning-modal-body> 
+        Content: {content} 
+        <template lwc:if={templates.data}>
+            <template for:each={templates.data} for:item="template">
+                <p key={template.Id}>{template.Name}</p>
+                <div key={template.Id} class="slds-box slds-box_xx-small slds-var-m-left_xx-small slds-var-m-right_xxx-small slds-var-m-bottom_xx-small">
+                    <lightning-card  title={template.Name}>
+                        <lightning-button-stateful
+                            label-when-off="Select"
+                            label-when-on="Selected"
+                            label-when-hover="Deselect"
+                            icon-name-when-off="utility:add"
+                            icon-name-when-on="utility:check"
+                            icon-name-when-hover="utility:close"
+                            selected={isSelected}
+                            onclick={handleTemplateSelectClick}
+                            name={template.Id}
+                            slot="actions"
+                            >
+                        </lightning-button-stateful>
+
+                        <lightning-formatted-rich-text
+                            value={template.Sample_Prompt__c}
+                        ></lightning-formatted-rich-text>
+                        
+                        <!-- Badge icon-name="utility:moneybag" -->
+                        <lightning-badge label={template.Role__c} slot="footer"></lightning-badge>
+                        <lightning-badge label={template.Action_Type__c} slot="footer"></lightning-badge>
+                        <lightning-badge label={template.Language__c} slot="footer"></lightning-badge>
+                        <!--<lightning-badge key={badge} label={block.displaybadge} slot="footer"></lightning-badge>-->
+                    </lightning-card>
+                </div>
+ 
+
+              </template>
+        </template>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+    </lightning-modal-footer>
+</template>

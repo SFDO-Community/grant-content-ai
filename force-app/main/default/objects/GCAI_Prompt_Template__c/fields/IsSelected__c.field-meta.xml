@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsSelected__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Model field used in UI component logic</description>
+    <externalId>false</externalId>
+    <label>IsSelected</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

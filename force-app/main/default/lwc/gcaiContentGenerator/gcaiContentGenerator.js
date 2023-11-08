@@ -2,13 +2,18 @@ import { LightningElement , api, wire } from "lwc";
 import { CloseActionScreenEvent } from 'lightning/actions';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getGeneratedContent from '@salesforce/apex/GCAI_PromptCtrl.getGeneratedContent';
+// Import message service features required for publishing and the message channel
+import { subscribe, MessageContext } from 'lightning/messageService';
+import CONTENT_DATA_CHANNEL from '@salesforce/messageChannel/GCAI_Content_Data__c';
+import TemplateModal from 'c/gcaiPromptTemplateModal';
 
 const COPY_URL_SUCCESS_MESSAGE = 'Copy text to clipboard succeeded.';
 export default class GcaiContentGenerator extends LightningElement {
 	@api generativeResult;
 	@api recordId;
 	@api objectApiName;
-
+    subscription = null;
+    textAreaFormats = ['']; // Empty array of formats removes all rich text editor toolbar buttons
     isLoading = false;
     title = 'Generate Content';
     requestPromptText = '';
@@ -22,6 +27,10 @@ export default class GcaiContentGenerator extends LightningElement {
 	}
     handlePromptChange(event) {
         this.requestPromptText = event.target.value;
+    }
+    handleTextClearButtonClick(){
+        this.requestPromptText = '';
+        this.generativeResult = '';
     }
     // Handle API request to GPT
     handleLLMRequest() {
@@ -102,4 +111,39 @@ export default class GcaiContentGenerator extends LightningElement {
 		this.dispatchEvent(evt);		
     }
 
+    // By using the MessageContext @wire adapter, unsubscribe will be called
+    // implicitly during the component descruction lifecycle.
+    @wire(MessageContext) messageContext;
+
+    // Encapsulate logic for LMS subscribe.
+    subscribeToMessageChannel() {
+        this.subscription = subscribe(
+            this.messageContext,
+            CONTENT_DATA_CHANNEL,
+            (message) => this.handleMessage(message)
+        );
+    }
+
+    // Handler for message received by model selector component
+    handleMessage(message) {
+        this.selectedModelURL = message.model;
+    }
+
+    // Standard lifecycle hooks used to sub/unsub to message channel
+    connectedCallback() {
+        this.subscribeToMessageChannel();
+    }
+
+    async handleTemplateOpenClick() {
+        const result = await TemplateModal.open({
+            size: 'large',
+            description: 'Accessible description of modal\'s purpose',
+            content: 'Passed into content api',
+        });
+        // if modal closed with X button, promise returns result = 'undefined'
+        // if modal closed with OK button, promise returns result = 'okay'
+        // console.log(result);
+        // Copy selected template prompt result to send API request
+        this.requestPromptText = result;
+    }
 }
