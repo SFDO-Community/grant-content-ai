@@ -25,7 +25,7 @@
     
       <lightning-input-rich-text
         onchange={handlePromptChange}
-        value={requestPromptText}
+        value={promptText}
         placeholder="Enter prompt text"
         class="slds-var-m-left_xx-small slds-var-m-right_xxx-small slds-var-m-bottom_xx-small"
         formats={textAreaFormats}
@@ -64,13 +64,6 @@
                 
                 <lightning-badge label={block.index} slot="footer"></lightning-badge>
                 <lightning-badge label={block.finish_reason} slot="footer"></lightning-badge>
-              <!-- Badge winner icon-name="utility:moneybag" 
-                <lightning-badge label={block.wordcount} slot="footer"></lightning-badge>
-                <lightning-badge label={block.languagelabel} slot="footer"></lightning-badge>
-                <template for:each={block.badgeList} for:item="badge">
-                    <lightning-badge key={badge} label={badge} slot="footer"></lightning-badge>
-                </template>
-              -->
             </lightning-card>
           </div>
 

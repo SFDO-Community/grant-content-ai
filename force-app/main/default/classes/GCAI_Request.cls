@@ -7,6 +7,7 @@
  */
 public with sharing class GCAI_Request {
     public String model {get;set;}
+    public List<Message> messages {get; set;}
     public String prompt {get; set;}
     public Decimal temperature {get; set;}
     public Integer max_tokens {get; set;}
@@ -15,7 +16,7 @@ public with sharing class GCAI_Request {
     public Decimal presence_penalty {get; set;}
 
     public GCAI_Request() {
-        this.model = 'gpt-3.5-turbo'; //'gpt-3.5-turbo'; // DEPERCTED Model text-davinci-003
+        this.model = 'gpt-3.5-turbo-instruct'; //'gpt-3.5-turbo'; // DEPERCTED Model text-davinci-003
         this.temperature = 0.3;
         this.max_tokens = 150;
         this.top_p = 1.0;
@@ -35,5 +36,10 @@ public with sharing class GCAI_Request {
 
     public String getJSONString(){
         return JSON.serializePretty(this, true);
+    }
+
+    public class Message {
+        public String role {get; set;}
+        public String content {get; set;}
     }
 }

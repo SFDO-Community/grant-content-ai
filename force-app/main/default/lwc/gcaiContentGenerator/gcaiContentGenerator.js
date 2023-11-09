@@ -16,29 +16,35 @@ export default class GcaiContentGenerator extends LightningElement {
     textAreaFormats = ['']; // Empty array of formats removes all rich text editor toolbar buttons
     isLoading = false;
     title = 'Generate Content';
-    requestPromptText = '';
+    promptText = '';
     error;
     selectedText = 'Text sample';
     selectedModelURL = 'gpt-3.5-turbo-instruct';
     generatedText = '';
+    rawTextData = '';
 
     closeModal() {
 		this.dispatchEvent(new CloseActionScreenEvent());
 	}
     handlePromptChange(event) {
-        this.requestPromptText = event.target.value;
+        this.promptText = event.target.value;
+        console.log(`## TEST input ${this.promptText}`);
     }
     handleTextClearButtonClick(){
-        this.requestPromptText = '';
+        this.promptText = '';
         this.generativeResult = '';
     }
     // Handle API request to GPT
     handleLLMRequest() {
         this.isLoading = true;
-        getGeneratedContent({ requestPromptText: this.requestPromptText, modelURL: this.selectedModelURL })
+        const regex = /(<([^>]+)>)/ig;
+        this.rawTextData = this.promptText.replace(regex, '');
+        console.log(`## Input text ${this.rawTextData}`);
+        getGeneratedContent({ requestPromptText: this.rawTextData, modelURL: this.selectedModelURL })
             .then((result) => {
-                console.log(`## GPT RESULT RETURN ${JSON.stringify(result)}`);
-                if (result.length > 0){
+                console.log(`## GPT RESULT Promise`);
+                if (result && result.length > 0){
+                    console.log(`## GPT RESULT RETURN ${JSON.stringify(result)}`);
                     this.generativeResult = result; // Array of data can be 1
                     console.log(`GPT Result: ${this.generativeResult[0]}`);
                     if(this.generativeResult[0].text){
@@ -144,6 +150,6 @@ export default class GcaiContentGenerator extends LightningElement {
         // if modal closed with OK button, promise returns result = 'okay'
         // console.log(result);
         // Copy selected template prompt result to send API request
-        this.requestPromptText = result;
+        this.promptText = result;
     }
 }

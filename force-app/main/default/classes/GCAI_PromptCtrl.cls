@@ -41,9 +41,10 @@ public with sharing class GCAI_PromptCtrl {
     }
     // Send LLM request with user selected model
     @AuraEnabled
-    public static List<GCAI_Response.GCAI_Choice> getGeneratedContent(String requestPromtText, String modelURL){
+    public static List<GCAI_Response.GCAI_Choice> getGeneratedContent(String requestPromptText, String modelURL){
         List<GCAI_Response.GCAI_Choice> response = new List<GCAI_Response.GCAI_Choice>();
-        GCAI_ResponseWrapper textResult = sendPromptRequest(requestPromtText);
+        System.debug('### Request text: '+requestPromptText+' Model: '+modelURL);
+        GCAI_ResponseWrapper textResult = sendPromptRequest(requestPromptText, modelURL);
         System.debug('### '+textResult);
         if(textResult.error != null){
             // handle error here
@@ -69,9 +70,21 @@ public with sharing class GCAI_PromptCtrl {
         return response;
     }
 
-    public static GCAI_ResponseWrapper sendPromptRequest(String str){
+    public static GCAI_ResponseWrapper sendPromptRequest(String str, String model){
         GCAI_ResponseWrapper res = new GCAI_ResponseWrapper();
-        GCAI_Request sfgpt = new GCAI_Request(str);
+        GCAI_Request sfgpt = new GCAI_Request();
+        sfgpt.prompt = str;
+        /*
+        if(model != null){
+            sfgpt.model = model;
+        }
+        // Set message
+        GCAI_Request.Message msg = new GCAI_Request.Message();
+        msg.role = 'user';
+        msg.content = str;
+        sfgpt.messages = new List<GCAI_Request.Message>();
+        sfgpt.messages.add(msg);
+        */
         String payload = sfgpt.getJSONString();
         System.debug('## REQUEST: ' + payload);
         // Call GPT API
