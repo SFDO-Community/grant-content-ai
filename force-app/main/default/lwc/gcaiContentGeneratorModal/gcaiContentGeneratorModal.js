@@ -6,6 +6,6 @@ export default class GcaiContentGeneratorModal extends LightningModal {
 	@api objectApiName;
 
     handleCloseModal() {
-        this.close('okay');
+        this.close('Close');
     }
 }
