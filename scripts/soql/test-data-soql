@@ -1,0 +1,6 @@
+# --- DX Script Query export Sample data to file ---
+
+sfdx force:data:tree:export --query \
+    "SELECT Id, Name, Action_Type__c, Sample_Prompt__c, Role__c, \
+    Input__c, Language__c, IsSelected__c FROM GCAI_Prompt_Template__c" \
+--prefix sample-data -d test-data --plan -o gcai

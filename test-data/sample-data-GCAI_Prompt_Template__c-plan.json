@@ -1,0 +1,10 @@
+[
+    {
+        "sobject": "GCAI_Prompt_Template__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "sample-data-GCAI_Prompt_Template__cs.json"
+        ]
+    }
+]
