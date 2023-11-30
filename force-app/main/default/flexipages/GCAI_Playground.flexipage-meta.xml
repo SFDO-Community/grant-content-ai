@@ -16,6 +16,12 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>gcaiModalLauncher</componentName>
+                <identifier>c_gcaiModalLauncher</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>selectedModel</name>
                 </componentInstanceProperties>
