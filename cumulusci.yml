@@ -2,7 +2,8 @@ minimum_cumulusci_version: '3.82.0'
 project:
     name: grant-content-ai
     package:
-        name: grant-content-ai
+        name: Grants Content Kit AI package
+        namespace: gckai
         api_version: '55.0'
     git:
         repo_url: https://github.com/SFDO-Community/grant-content-ai.git
