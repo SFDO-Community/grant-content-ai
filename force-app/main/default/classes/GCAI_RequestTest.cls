@@ -12,7 +12,7 @@ public class GCAI_RequestTest {
     static void requestTest() {
         GCAI_Request req = new GCAI_Request();
         String str = req.getJSONString();
-        System.assertEquals('gpt-3.5-turbo',req.model,'Invalid moel constructor');
+        System.assertEquals('gpt-3.5-turbo-instruct',req.model,'Invalid moel constructor');
         System.assert(str != null, 'Failed to parse request');
     }
     @isTest
