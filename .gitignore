@@ -48,3 +48,5 @@ $RECYCLE.BIN/
 **/venv/
 .cci/*
 .pmdCache
+test_results.xml
+test_results.json
