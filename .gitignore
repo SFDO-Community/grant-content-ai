@@ -39,7 +39,11 @@ $RECYCLE.BIN/
 # Local environment variables
 .env
 
+#Husky
+.husky
+
 # Python Salesforce Functions
 **/__pycache__/
 **/.venv/
 **/venv/
+.cci/*
