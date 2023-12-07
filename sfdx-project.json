@@ -6,7 +6,7 @@
     }
   ],
   "name": "grant-content-ai",
-  "namespace": "",
+  "namespace": "gckai",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "59.0"
 }
