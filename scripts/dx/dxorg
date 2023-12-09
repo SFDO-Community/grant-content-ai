@@ -27,7 +27,6 @@ sf org create scratch --alias $ORG_ALIAS --definition-file config/project-scratc
 # Push source
 echo "--- PUSH SOURCE FOR: $ORG_ALIAS"
 sf project deploy start --target-org $ORG_ALIAS || { echo 'Source push failed' ; exit 1; }
-# sf project retrieve start --metadata PermissionSet:GCAI_Permission_User --target-org $ORG_ALIAS
 
 # Assign Permission Set to users
 echo "--- ASSIGN PERMISSIONS FOR: $ORG_ALIAS"
@@ -41,4 +40,10 @@ sf data import tree --plan test-data/sample-data-GCAI_Prompt_Template__c-plan.js
 
 # Open new org
 #sf org open --target-org $ORG_ALIAS
+
+# Commands to get individual metatadat for reference
+# sf project retrieve start --metadata PermissionSet:GCAI_Permission_User --target-org $ORG_ALIAS
+# sf project retrieve start --metadata StaticResource:mockAIModelsResponse --target-org ai
+# sf project retrieve start --metadata StaticResource:mockAITextResponse --target-org ai
+
 echo "--- END DEPLOYMENT FOR: $ORG_ALIAS"
