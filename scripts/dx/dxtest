@@ -1,0 +1,24 @@
+#!/bin/sh
+
+##########################################################################################
+#
+#   Author: Igor Androsov 2023
+#
+#   Script to run APEX Unit Tests for project
+#   For more details on sf testing refer to: 
+#   https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_testing.htm
+##########################################################################################
+
+# Run all unit tests on new Scratch org environment asynchronous
+# Set input prameter values org alias
+
+ORG_ALIAS="$1"
+
+echo "--- START UNIT TESTS FOR: $ORG_ALIAS"
+
+# Run Tests - optional step
+# --- DEPRECTAED CLI OPTIONS change to new version of sfdx
+# sf force:apex:test:run  -c --target-dev-hub-r human --target-org $ORG_ALIAS
+sf apex run test --code-coverage --detailed-coverage --result-format human --target-org $ORG_ALIAS # ERROR: Unable to convert this command; you must convert it manually.
+
+echo "--- END UNIT TESTS FOR: $ORG_ALIAS"
