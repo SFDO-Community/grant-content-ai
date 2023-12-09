@@ -1,7 +1,7 @@
 {
   "orgName": "Salesforce Commons",
   "edition": "Developer",
-  "features": ["EnableSetPasswordInApi","AuthorApex"],
+  "features": ["EnableSetPasswordInApi"],
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true

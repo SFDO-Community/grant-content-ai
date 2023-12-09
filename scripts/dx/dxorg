@@ -1,0 +1,44 @@
+#!/bin/sh
+
+##########################################################################################
+#
+#   Author: Igor Androsov 2023
+#
+##########################################################################################
+
+# Create new Scratch org environment for development testing and load test data
+# Set input prameter values
+
+ORG_ALIAS="$1"
+# Get input for ORG active days with default to 30 days
+ACTIVEDAYS="${2:-30}"
+
+echo "--- START DEPLOYMENT FOR: $ORG_ALIAS"
+echo "--- New ORG will be active for: $ACTIVEDAYS"
+# Set user alias from org name
+TESTUSER="${ORG_ALIAS}-user"
+
+# Create new scratch org 30 days max
+sf org create scratch --alias $ORG_ALIAS --definition-file config/project-scratch-def.json --set-default --duration-days $ACTIVEDAYS || { echo 'Scratch org create failed' ; exit 1; }
+
+# Create test user
+# sf org create user --set-alias $TESTUSER --definition-file config/user-def.json profileName='Chatter Free User' --target-org $ORG_ALIAS || { echo 'Scratch org User create failed' ; exit 1; }
+
+# Push source
+echo "--- PUSH SOURCE FOR: $ORG_ALIAS"
+sf project deploy start --target-org $ORG_ALIAS || { echo 'Source push failed' ; exit 1; }
+# sf project retrieve start --metadata PermissionSet:GCAI_Permission_User --target-org $ORG_ALIAS
+
+# Assign Permission Set to users
+echo "--- ASSIGN PERMISSIONS FOR: $ORG_ALIAS"
+sf org assign permset --name GCAI_Permission_User --target-org $ORG_ALIAS || { echo 'User permission failed' ; exit 1; }
+
+# Push sample data
+echo "--- INSERT SAMPLE DATA FOR: $ORG_ALIAS"
+sf data import tree --plan test-data/sample-data-GCAI_Prompt_Template__c-plan.json --target-org $ORG_ALIAS # ERROR: Unable to convert this command; you must convert it manually.
+
+# Run Tests - optional step
+
+# Open new org
+#sf org open --target-org $ORG_ALIAS
+echo "--- END DEPLOYMENT FOR: $ORG_ALIAS"
