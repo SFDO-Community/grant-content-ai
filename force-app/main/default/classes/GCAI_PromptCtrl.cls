@@ -53,19 +53,6 @@ public with sharing class GCAI_PromptCtrl {
             System.debug('ERROR GPT: '+textResult.error);
         }else{
             response = textResult.data.choices;
-            /*
-            // Covert response to blocks data
-            List<GGW_ContentBlockWrapper> cbwResultList = new List<GGW_ContentBlockWrapper>();
-            for (GCAI_Response.GCAI_Choice c : textResult.data.choices){
-                GGW_ContentBlockWrapper cbw = new GGW_ContentBlockWrapper();
-                cbw.isselected = false;
-                cbw.title = 'Generated text '+c.index;
-                cbw.displaytext = c.text;
-                // Add otehr fields 
-                cbwResultList.add(cbw);
-            }
-            response.issuccess = true;
-            response.contentblocks = cbwResultList;*/
         }
         return response;
     }
@@ -142,30 +129,4 @@ public with sharing class GCAI_PromptCtrl {
         System.debug('## GET RESPONSE DATA: ' + response.getBody());
         return response;
     }
-
-    /**
-     * Update text block selection, wire block to item and copy block text data for display and edits
-     * 
-     *
-    @AuraEnabled
-    public static void saveGeneratedSectionTextBlock(String itemid, String sectionid, String gentext){
-        // Save new genarated block related to section
-        GGW_Content_Block__c cb = new GGW_Content_Block__c();
-        cb.name = '[AI Generated Content]';
-        cb.Section__c = sectionid;
-        cb.Description__c = gentext;
-        if(Schema.sObjectType.GGW_Content_Block__c.isCreateable()){
-            insert cb;
-        }
-
-        // Construct selected Item to update
-        GGW_Selected_Item__c item = new GGW_Selected_Item__c();
-        item.Id = itemid;
-        item.Selected_Block__c = cb.Id;
-        item.Text_Block__c = gentext; // Copy rich text from block to item for edits
-        if(Schema.sObjectType.GGW_Selected_Item__c.isUpdateable()){
-            update item;
-        }
-
-    }*/
 }

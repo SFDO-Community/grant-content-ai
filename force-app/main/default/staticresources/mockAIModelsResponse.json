@@ -1,0 +1,26 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "text-davinci-001",
+      "object": "model",
+      "created": 1686935002,
+      "owned_by": "organization-owner",
+      "root": "text-davinci-001"
+    },
+    {
+      "id": "model-id-1",
+      "object": "model",
+      "created": 1686935002,
+      "owned_by": "organization-owner",
+      "root": "model-id-1"
+    },
+    {
+      "id": "model-id-2",
+      "object": "model",
+      "created": 1686935002,
+      "owned_by": "openai",
+      "root": "model-id-2"
+    }
+  ]
+}
