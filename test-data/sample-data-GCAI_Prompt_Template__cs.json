@@ -5,9 +5,9 @@
                 "type": "GCAI_Prompt_Template__c",
                 "referenceId": "GCAI_Prompt_Template__cRef1"
             },
-            "Name": "Slack Post",
+            "Name": "Post or Thread",
             "Action_Type__c": "Summarize",
-            "Sample_Prompt__c": "Slack Post or Thread\r\nThe content you are creating is meant to summarize the following text. The summary must consist of a bulleted list. The text is:\r\n\r\n[insert Slack post/thread here]",
+            "Sample_Prompt__c": "Post or Thread\r\nThe content you are creating is meant to summarize the following text. The summary must consist of a bulleted list. The text is:\r\n\r\n[insert post/thread here]",
             "Role__c": "Any",
             "Input__c": "Slack",
             "Language__c": "English",
@@ -18,9 +18,9 @@
                 "type": "GCAI_Prompt_Template__c",
                 "referenceId": "GCAI_Prompt_Template__cRef2"
             },
-            "Name": "Error Logs",
-            "Action_Type__c": "Analyze",
-            "Sample_Prompt__c": "Use the data from the following error logs to explain why I'm encounter the error in a plain language. Avoid technical language or provide an example of what was going wrong in the process in order to produce this error.",
+            "Name": "Executive Summary",
+            "Action_Type__c": "Create",
+            "Sample_Prompt__c": "Create executive summary for the grant application intended for Clean Ocean campaign.",
             "Role__c": "Any",
             "Input__c": null,
             "Language__c": "English",
@@ -31,10 +31,10 @@
                 "type": "GCAI_Prompt_Template__c",
                 "referenceId": "GCAI_Prompt_Template__cRef3"
             },
-            "Name": "What Salesforce Design System component should I use?",
+            "Name": "What is grant application process how should I use it?",
             "Action_Type__c": "Answer",
-            "Sample_Prompt__c": "The content you are creating is meant to answer the following question. The content must be a short response to the question asked using declarative statements in second person. If you are unsure, be honest and state “I do not know.” The question is: Based on the Salesforce Design System, what component should I use to [explain here]?",
-            "Role__c": "Developer",
+            "Sample_Prompt__c": "The content you are creating is meant to answer the following question. Assist grant writers with understanding the process, how to create grant application. What sections are requires and what is optional.",
+            "Role__c": "Any",
             "Input__c": null,
             "Language__c": "English",
             "IsSelected__c": false

@@ -1,7 +1,6 @@
 <template>
     <lightning-modal-header label="Prompt Samples"></lightning-modal-header>
-    <lightning-modal-body> 
-        Content: {content} 
+    <lightning-modal-body>  
         <template lwc:if={templates.data}>
             <template for:each={templates.data} for:item="template">
                 <p key={template.Id}>{template.Name}</p>
@@ -33,7 +32,6 @@
                     </lightning-card>
                 </div>
  
-
               </template>
         </template>
     </lightning-modal-body>

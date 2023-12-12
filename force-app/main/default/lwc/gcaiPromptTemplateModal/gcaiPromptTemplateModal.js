@@ -5,7 +5,6 @@ import getTemplateList from '@salesforce/apex/GCAI_PromptTemplateCtrl.getTemplat
 export default class GcaiPromptTemplateModal extends LightningModal {
 	@api recordId;
 	@api objectApiName;
-	@api content;
 	isSelected = false; 
 	// Query list of saved prompt template form Salesforce
 	@wire(getTemplateList) templates;
