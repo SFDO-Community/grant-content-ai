@@ -3,7 +3,11 @@ on:
         
   jobs:
     upload-production-release-1gp:
+<<<<<<< HEAD
       name: "Upload Production Release (2GP)"
+=======
+      name: "Upload Production Release (1GP)"
+>>>>>>> 1bc5116b7786a108f0836c22def69abea450ac02
       uses: SFDO-Community/standard-workflows/.github/workflows/production-2gp.yml@main
       secrets:
         dev-hub-auth-url: '${{ secrets.DEV_HUB_AUTH_URL }}'
