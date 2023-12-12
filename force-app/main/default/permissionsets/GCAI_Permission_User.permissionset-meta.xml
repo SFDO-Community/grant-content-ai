@@ -4,10 +4,6 @@
         <application>GCAI</application>
         <visible>true</visible>
     </applicationVisibilities>
-    <externalCredentialPrincipalAccesses>
-        <enabled>true</enabled>
-        <externalCredentialPrincipal>GCAIAPICredential-GCAI API Principal</externalCredentialPrincipal>
-    </externalCredentialPrincipalAccesses>
     <fieldPermissions>
         <editable>true</editable>
         <field>GCAI_Prompt_Template__c.Action_Type__c</field>
