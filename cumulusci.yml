@@ -10,6 +10,7 @@ project:
         default_branch: 'main'
         prefix_beta: beta/
         prefix_release: release/
+        prefix_feature: feature/
     source_format: sfdx
 
 tasks:
