@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v3
       
       # Store secret for dev hub
-      - name: 'Populate auth file with SFDX_AUTH_URL secret'
+      - name: 'Populate auth file with DEV_HUB_AUTH_URL secret'
         shell: bash
         run: |
             echo ${{ secrets.DEV_HUB_AUTH_URL}} > ./SFDX_AUTH_URL.txt
@@ -59,4 +59,4 @@ jobs:
           pip install cumulusci
       - name: Deploy and Run Tests
         run: |
-          cci flow run ci_feature --org feature --delete-org
+          cci flow run ci_feature_2gp --org feature --delete-org
