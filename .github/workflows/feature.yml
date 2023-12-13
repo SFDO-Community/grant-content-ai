@@ -7,6 +7,9 @@ on:
     paths-ignore:
         - 'docs/**'
         - 'README.md'
+env:
+  CUMULUSCI_KEYCHAIN_CLASS: cumulusci.core.keychain.EnvironmentProjectKeychain
+  CUMULUSCI_SERVICE_github: ${{ secrets.CUMULUSCI_SERVICE_github }}
 
 jobs:
   feature-build:
