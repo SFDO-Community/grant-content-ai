@@ -2,7 +2,7 @@ name: "Feature Test"
 on:
   push:
     branches:
-      - feature/**
+      - feature**
 
 jobs:
   feature-test:
