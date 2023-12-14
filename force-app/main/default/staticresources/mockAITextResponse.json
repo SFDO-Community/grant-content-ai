@@ -1,0 +1,18 @@
+{
+    "id": "chatcmpl-abc123",
+    "object": "chat.completion",
+    "created": 1677858242,
+    "model": "gpt-3.5-turbo-instruct",
+    "usage": {
+        "prompt_tokens": 13,
+        "completion_tokens": 7,
+        "total_tokens": 20
+    },
+    "choices": [
+        {
+            "text": "\n\nThis is a test text response from AI!",
+            "finish_reason": "stop",
+            "index": 0
+        }
+    ]
+}
