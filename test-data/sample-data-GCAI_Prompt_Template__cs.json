@@ -5,11 +5,11 @@
                 "type": "GCAI_Prompt_Template__c",
                 "referenceId": "GCAI_Prompt_Template__cRef1"
             },
-            "Name": "Post or Thread",
-            "Action_Type__c": "Summarize",
-            "Sample_Prompt__c": "Post or Thread\r\nThe content you are creating is meant to summarize the following text. The summary must consist of a bulleted list. The text is:\r\n\r\n[insert post/thread here]",
+            "Name": "Executive Summary",
+            "Action_Type__c": "Create",
+            "Sample_Prompt__c": "As a grant writer, create a concise and compelling ‘Executive Summary Block’ for [topic name, project or initiative] and why it should be funded by the [grant-giving organization]. Limit word count = 250 words. Use ‘Global English to make content and context accessible for non-native comprehension.",
             "Role__c": "Any",
-            "Input__c": "Slack",
+            "Input__c": null,
             "Language__c": "English",
             "IsSelected__c": false
         },
@@ -18,9 +18,9 @@
                 "type": "GCAI_Prompt_Template__c",
                 "referenceId": "GCAI_Prompt_Template__cRef2"
             },
-            "Name": "Executive Summary",
+            "Name": "Statement of Need",
             "Action_Type__c": "Create",
-            "Sample_Prompt__c": "Create executive summary for the grant application intended for Clean Ocean campaign.",
+            "Sample_Prompt__c": "As a grant writer, create a concise and compelling ‘Statement of Need Block’ for a grant proposal, [topic name, project or initiative] to show how the project ties in with the funder’s objectives. Demonstrate the urgency of the need with valid and compelling data for an urgent societal or community issue that your organization or project aims to tackle. Limit word count 250 words. Use ‘Global English’ to make content and context accessible for non-native comprehension.",
             "Role__c": "Any",
             "Input__c": null,
             "Language__c": "English",
@@ -31,9 +31,48 @@
                 "type": "GCAI_Prompt_Template__c",
                 "referenceId": "GCAI_Prompt_Template__cRef3"
             },
-            "Name": "What is grant application process how should I use it?",
-            "Action_Type__c": "Answer",
-            "Sample_Prompt__c": "The content you are creating is meant to answer the following question. Assist grant writers with understanding the process, how to create grant application. What sections are requires and what is optional.",
+            "Name": "Project Objectives",
+            "Action_Type__c": "Create",
+            "Sample_Prompt__c": "As a grant writer, create a concise and compelling ‘Project Objective Block’ for [topic name, project, or initiative] to clearly state the approach you are going to take to meet the need and specify how the success of this project relates to the funder’s mission. Format output with phases beginning with ‘The objectives of this proposal are to assess the effect of...“ Limit word count = 250 words. Use ‘Global English to make content and context accessible for non-native comprehension.",
+            "Role__c": "Any",
+            "Input__c": null,
+            "Language__c": "English",
+            "IsSelected__c": false
+        },
+        {
+            "attributes": {
+                "type": "GCAI_Prompt_Template__c",
+                "referenceId": "GCAI_Prompt_Template__cRef4"
+            },
+            "Name": "Budget Narrative",
+            "Action_Type__c": "Create",
+            "Sample_Prompt__c": "As a grant writer, create a concise and compelling ‘Budget Narrative Block’ for [topic name, project or initiative] to explain the financial details and reinforce the credibility and feasibility of your project, increasing the chances of securing funding. Explain why each cost is necessary for the successful implementation of the project. Use bullet points to breakdown different categories or aspects of the budget. Format output with phrases beginning with “This project seeks to....” Limit word count = 250 words. Use ‘Global English to make content and context accessible for non-native comprehension.",
+            "Role__c": "Any",
+            "Input__c": null,
+            "Language__c": "English",
+            "IsSelected__c": false
+        },
+        {
+            "attributes": {
+                "type": "GCAI_Prompt_Template__c",
+                "referenceId": "GCAI_Prompt_Template__cRef5"
+            },
+            "Name": "Program Narrative",
+            "Action_Type__c": "Create",
+            "Sample_Prompt__c": "As a grant writer, create a concise and compelling ‘Program Objective Block’ for [topic name, project, or initiative] using storytelling technique to paint a vivid picture of the problem or need the program addresses, and how it’s successful implementation will create a positive impact or change in the community or target beneficiaries. Limit word count = 250 words. Use ‘Global English to make content and context accessible for non-native comprehension.",
+            "Role__c": "Any",
+            "Input__c": null,
+            "Language__c": "English",
+            "IsSelected__c": false
+        },
+        {
+            "attributes": {
+                "type": "GCAI_Prompt_Template__c",
+                "referenceId": "GCAI_Prompt_Template__cRef6"
+            },
+            "Name": "Plan of Action",
+            "Action_Type__c": "Create",
+            "Sample_Prompt__c": "As a grant writer, develop a ‘Plan of Action Block’ for [topic name, project or initiative] including project timeline, evaluation plan, risk management, sustainability, communication and reporting considerations. Limit word count = 250 words. Use ‘Global English to make content and context accessible for non-native comprehension.",
             "Role__c": "Any",
             "Input__c": null,
             "Language__c": "English",
