@@ -2,11 +2,25 @@
   "packageDirectories": [
     {
       "path": "force-app",
-      "default": true
+      "default": true,
+      "package": "Grants Content AI Playground",
+      "versionName": "Winter 24",
+      "versionNumber": "1.0.0.NEXT",
+      "versionDescription": "The GCAI Playground project is an AI utility designed to integrate with the LWC UI/UX framework",
+      "apexTestAccess": {
+        "permissionSets": [
+          "GCAI_Permission_User"
+        ]
+      }
     }
   ],
   "name": "grant-content-ai",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "59.0"
+  "sourceApiVersion": "59.0",
+  "packageAliases": {
+    "Grants Content AI Playground": "0Ho8a000000CaWlCAK",
+    "Grants Content AI Playground@1.0.0-1": "04t8a000000qq4RAAQ",
+    "Grants Content AI Playground@1.0.0-2": "04t8a000000qq4WAAQ"
+  }
 }
